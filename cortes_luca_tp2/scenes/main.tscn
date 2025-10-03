@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=4 uid="uid://yhsbgkmoh0n0"]
+
+[ext_resource type="Texture2D" uid="uid://bpbgl88qi6ldi" path="res://assets/background/4.png" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://br6tc1n423032" path="res://assets/background/3.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://6ggod0vknq2o" path="res://assets/background/2.png" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://b6cuf3jfxysx" path="res://assets/background/1.png" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dvufpm32yrv24" path="res://assets/objects/bamboo_forest_objects.png" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bwf8rggm132oh" path="res://scenes/character.tscn" id="6_tefeu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
+texture = ExtResource("5_tbgi4")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o6xl0"]
+sources/0 = SubResource("TileSetAtlasSource_tefeu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(1152, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(1152, 128)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Background1" type="Sprite2D" parent="Environment"]
+position = Vector2(576, 324)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("1_jyhfs")
+
+[node name="Background2" type="Sprite2D" parent="Environment"]
+position = Vector2(575, 359)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_tbgi4")
+
+[node name="Background3" type="Sprite2D" parent="Environment"]
+position = Vector2(576, 324)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("3_tefeu")
+
+[node name="Background4" type="Sprite2D" parent="Environment"]
+position = Vector2(576, 324)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("4_o6xl0")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Environment"]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAgAAAABAAAAAAABAAgAAAACAAAAAAACAAgAAAADAAAAAAAFAAgAAAAGAAAAAAAGAAgAAAAHAAAAAAADAAgAAAACAAAAAAAEAAgAAAADAAAAAAAHAAgAAAAGAAAAAAAIAAgAAAAHAAAAAAAJAAgAAAACAAAAAAAKAAgAAAADAAAAAAANAAgAAAAGAAAAAAAOAAgAAAAHAAAAAAALAAgAAAACAAAAAAAMAAgAAAADAAAAAAAPAAgAAAAGAAAAAAAQAAgAAAAHAAAAAAAAAAoAAAAHAAEAADABAAoAAAAHAAEAADACAAoAAAAHAAEAADADAAoAAAAHAAEAADAEAAoAAAAHAAEAADAFAAoAAAAHAAEAADAGAAoAAAAHAAEAADAHAAoAAAAHAAEAADAIAAoAAAAHAAEAADAJAAoAAAAHAAEAADAKAAoAAAAHAAEAADALAAoAAAAHAAEAADAMAAoAAAAHAAEAADANAAoAAAAHAAEAADAOAAoAAAAHAAEAADAPAAoAAAAHAAEAADAQAAoAAAAHAAEAADARAAoAAAAHAAEAADAAAAkAAAAHAAEAAAABAAkAAAAHAAEAAAACAAkAAAAHAAEAAAADAAkAAAAHAAEAAAAEAAkAAAAHAAEAAAAFAAkAAAAHAAEAAAAGAAkAAAAHAAEAAAAHAAkAAAAHAAEAAAAIAAkAAAAHAAEAAAAJAAkAAAAHAAEAAAAKAAkAAAAHAAEAAAALAAkAAAAHAAEAAAAMAAkAAAAHAAEAAAANAAkAAAAHAAEAAAAOAAkAAAAHAAEAAAAPAAkAAAAHAAEAAAAQAAkAAAAHAAEAAAARAAkAAAAHAAEAAAARAAgAAAAHAAAAAAAAAAEAAAAHAAAAADABAAEAAAACAAAAADACAAEAAAAHAAAAADADAAEAAAAHAAAAADAEAAEAAAADAAAAADAFAAEAAAACAAAAADAGAAEAAAAHAAAAADAHAAEAAAAHAAAAADAIAAEAAAAHAAAAADAJAAEAAAAHAAAAADAKAAEAAAADAAAAADALAAEAAAAHAAAAADAMAAEAAAAHAAAAADANAAEAAAACAAAAADAOAAEAAAAHAAAAADAPAAEAAAAHAAAAADAQAAEAAAADAAAAADARAAEAAAAHAAAAADAAAAAAAAAGAAEAADABAAAAAAAGAAEAADACAAAAAAAGAAEAADADAAAAAAAGAAEAADAEAAAAAAAGAAEAADAFAAAAAAAGAAEAADAGAAAAAAAGAAEAADAHAAAAAAAGAAEAADAIAAAAAAAGAAEAADAJAAAAAAAGAAEAADAKAAAAAAAGAAEAADALAAAAAAAGAAEAADAMAAAAAAAGAAEAADANAAAAAAAGAAEAADAOAAAAAAAGAAEAADAPAAAAAAAGAAEAADAQAAAAAAAGAAEAADARAAAAAAAGAAEAADA=")
+tile_set = SubResource("TileSet_o6xl0")
+
+[node name="CollisionBottom" type="StaticBody2D" parent="Environment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/CollisionBottom"]
+position = Vector2(576, 608)
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="CollisionTop" type="StaticBody2D" parent="Environment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/CollisionTop"]
+position = Vector2(576, 64)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(835, 512)
