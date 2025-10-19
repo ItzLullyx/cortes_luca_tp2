@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready
-var anim = $AnimatedSprite2D
+@onready var anim = $AnimatedSprite2D
+@onready var collision = $CollisionShape2D
 
-const SPEED = 300.0
+const SPEED = 400.0
 
 enum state {
 	IDLE,
@@ -35,6 +35,18 @@ func _physics_process(delta: float) -> void:
 		anim.play("grav_change")
 		anim.stop()
 		
+	# Character horizontal flip
+	if velocity.x < 0:
+		anim.flip_h = true
+	elif velocity.x > 0:
+		anim.flip_h = false
+		
+	# Character vertical flip
+	if velocity.y < 0:
+		anim.flip_v = true
+	elif velocity.y > 0:
+		anim.flip_v = false
+		
 	# Gravity flip input
 	if Input.is_action_just_pressed("teleport"):
 		velocity += get_gravity() * -1
@@ -43,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	# Gravity change
 	var gravity_multiplier = -1.0 if gravity_flipped else 1.0
 	if not is_on_floor():
-		velocity += get_gravity() * gravity_multiplier * 1
+		velocity += get_gravity() * gravity_multiplier * 0.2
 
 	# Get the input direction and handle the movement/deceleration
 	var direction := Input.get_axis("move_left", "move_right")
