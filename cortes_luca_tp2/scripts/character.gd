@@ -48,9 +48,11 @@ func _physics_process(delta: float) -> void:
 		anim.flip_v = false
 		
 	# Gravity flip input
-	if Input.is_action_just_pressed("teleport"):
-		velocity += get_gravity() * -1
-		gravity_flipped = !gravity_flipped
+	if is_on_floor() or is_on_ceiling():
+		if Input.is_action_just_pressed("teleport"):
+			velocity += get_gravity() * -1
+			gravity_flipped = !gravity_flipped
+		
 		
 	# Gravity change
 	var gravity_multiplier = -1.0 if gravity_flipped else 1.0

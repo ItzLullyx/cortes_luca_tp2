@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu6t0433mrx"]
+
+[ext_resource type="FontFile" uid="uid://7ophot787xu4" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="1_yqeox"]
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="MenuPannel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Jouer" type="Button" parent="MenuPannel"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 360.0
+offset_right = 726.0
+offset_bottom = 445.0
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 47
+text = "JOUER"
+
+[node name="Instructions" type="Button" parent="MenuPannel"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 484.0
+offset_right = 792.0
+offset_bottom = 569.0
+theme_override_colors/font_hover_pressed_color = Color(0.223103, 0.223103, 0.223103, 1)
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 47
+text = "INSTRUCTIONS"
+icon_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://yhsbgkmoh0n0"]
+[gd_scene load_steps=13 format=4 uid="uid://yhsbgkmoh0n0"]
 
 [ext_resource type="Texture2D" uid="uid://bpbgl88qi6ldi" path="res://assets/background/4.png" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://br6tc1n423032" path="res://assets/background/3.png" id="2_tbgi4"]
@@ -30,10 +30,16 @@ texture = ExtResource("5_tbgi4")
 sources/0 = SubResource("TileSetAtlasSource_tefeu")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
-size = Vector2(1152, 175)
+size = Vector2(1152, 164)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
-size = Vector2(1152, 111)
+size = Vector2(1152, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(20, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85g3d"]
+size = Vector2(20, 704)
 
 [node name="Node2D" type="Node2D"]
 
@@ -67,14 +73,26 @@ tile_set = SubResource("TileSet_o6xl0")
 [node name="CollisionBottom" type="StaticBody2D" parent="Environment"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/CollisionBottom"]
-position = Vector2(576, 616.5)
+position = Vector2(576, 622)
 shape = SubResource("RectangleShape2D_o6xl0")
 
 [node name="CollisionTop" type="StaticBody2D" parent="Environment"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/CollisionTop"]
-position = Vector2(576, 55.5)
+position = Vector2(576, 50)
 shape = SubResource("RectangleShape2D_tipki")
 
+[node name="CollisionSide1" type="StaticBody2D" parent="Environment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/CollisionSide1"]
+position = Vector2(-10, 352)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="CollisionSide2" type="StaticBody2D" parent="Environment"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/CollisionSide2"]
+position = Vector2(1162, 352)
+shape = SubResource("RectangleShape2D_85g3d")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(835, 512)
+position = Vector2(837, 540)
