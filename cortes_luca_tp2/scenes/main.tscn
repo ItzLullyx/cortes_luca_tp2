@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=4 uid="uid://yhsbgkmoh0n0"]
+[gd_scene load_steps=15 format=4 uid="uid://yhsbgkmoh0n0"]
 
 [ext_resource type="Texture2D" uid="uid://bpbgl88qi6ldi" path="res://assets/background/4.png" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://d2nc8ee2bs3o8" path="res://scenes/main.gd" id="1_tipki"]
 [ext_resource type="Texture2D" uid="uid://br6tc1n423032" path="res://assets/background/3.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://6ggod0vknq2o" path="res://assets/background/2.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://b6cuf3jfxysx" path="res://assets/background/1.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dvufpm32yrv24" path="res://assets/objects/bamboo_forest_objects.png" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bwf8rggm132oh" path="res://scenes/character.tscn" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://cajuu6txs48m" path="res://assets/sounds/ShirikoMenuIsh.mp3" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("5_tbgi4")
@@ -42,6 +44,7 @@ size = Vector2(20, 704)
 size = Vector2(20, 704)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_tipki")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -96,3 +99,6 @@ shape = SubResource("RectangleShape2D_85g3d")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(837, 540)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_o6xl0")

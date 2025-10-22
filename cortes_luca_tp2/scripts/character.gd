@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
+@onready var gravitychangesound = $GravityChangeSound
 
 const SPEED = 400.0
 
@@ -52,8 +53,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("teleport"):
 			velocity += get_gravity() * -1
 			gravity_flipped = !gravity_flipped
-		
-		
+			gravitychangesound.play()
+			
 	# Gravity change
 	var gravity_multiplier = -1.0 if gravity_flipped else 1.0
 	if not is_on_floor():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bwf8rggm132oh"]
+[gd_scene load_steps=25 format=3 uid="uid://bwf8rggm132oh"]
 
 [ext_resource type="Texture2D" uid="uid://ca5260xmk2o12" path="res://assets/spritesheets/Red_Spritesheet.png" id="1_agfs1"]
 [ext_resource type="Script" uid="uid://ichwyj66serg" path="res://scripts/character.gd" id="1_rkhd4"]
+[ext_resource type="AudioStream" uid="uid://bdr7wciv1jim5" path="res://assets/sounds/SteppingSound.mp3" id="3_lrhn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkhd4"]
 atlas = ExtResource("1_agfs1")
@@ -175,3 +176,6 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -79)
 shape = SubResource("RectangleShape2D_bj47h")
+
+[node name="GravityChangeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lrhn5")
